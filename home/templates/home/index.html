@@ -1,12 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <link rel="stylesheet" href="{% static ' /home/css/style.css ' %} ">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static '/home/bootstrap/css/bootstrap.css' %}">
+    <title>MCU</title>
 </head>
 <body>
-    <h1>e come se funziona</h1>
+  <div class="container-fluid">
+    <div class="nav">
+      <h1>Home</h1>
+      <h1>Personaggi</h1>
+    </div>
+    <div class="hero">
+        <div class="titolo">
+            <h1><span class="oro">M</span>ARVEL</h1>
+            <h1><span class="oro">C</span>INEMATIC</h1>
+            <h1><span class="oro">U</span>NIVERSE</h1>
+        </div>
+        <div class="spiega">
+          <h1>Il Marvel Cinematic Universe (MCU) è una serie di film, programmi televisivi e altri media basati sui personaggi dei fumetti della Marvel Comics.</h1>
+
+        </div>
+      </div>   
+  </div>
+    
+    <script src="{% static '/home/bootstrap/js/bootstrap.bundle.js ' %}"></script>
+    <script src="{% static '/home/bootstrap/js/bootstrap.bundle.min.js ' %}"></script>
 </body>
 </html>
