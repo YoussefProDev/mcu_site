@@ -1,6 +1,9 @@
 # byte compiler
 *.pyc
-__pycache__/
+home/__pycache__/
+personaggi/__pycache__/
+mcu_site/__pycache__/
+
 *.DS_Store
 # venv
 .env
