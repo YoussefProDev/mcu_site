@@ -1,0 +1,13 @@
+# byte compiler
+*.pyc
+__pycache__/
+
+# venv
+.env
+.venv
+env/
+venv/
+
+# django
+*.log
+db.sqlite3
