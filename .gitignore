@@ -1,16 +1,26 @@
 # byte compiler
 *.pyc
-home/__pycache__/
-personaggi/__pycache__/
-mcu_site/__pycache__/
+*.py[cod]
+__pycache__/
 
-*.DS_Store
+.DS_Store
+
+# Thumbnails
+._*
+
+.cache
 # venv
 .env
 .venv
 env/
 venv/
 
-# django
+### Django ###
 *.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+.env
 db.sqlite3
