@@ -30,6 +30,7 @@
     background-color: red;
     display: flex;
     justify-content: space-between;
+    overflow: hidden ;
 }
 
 .oro{
