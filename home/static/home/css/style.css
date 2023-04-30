@@ -1,0 +1,51 @@
+
+@font-face {
+    font-family: 'MarvelFont';
+    src: url('../font/marvel-font/MarvelRegular.ttf'); 
+ }
+ *{
+    margin: 0px;
+    padding: 0px;
+ }
+
+.titolo {
+    font-family: 'MarvelFont';
+    color: white;
+}
+.titolo h1{
+    font-size: 500%;
+}
+.spiega{
+    /* margin-top: 60px;
+    margin-left: 150px; */
+    padding-top: 8%;
+    font-size: x-large;
+    padding-left: 10%;
+    /* color: rgb(22, 13, 200); */
+    /* color: aqua; */
+}
+.hero {
+    height: 50vh;
+    padding: 4%;
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+}
+
+.oro{
+    color: goldenrod;
+}
+.head{
+    height: 60vh;
+    padding-left: 0%;
+    padding-right: 0%;
+}
+
+.nav{
+    margin-top: 20px;
+    justify-content: center;
+    
+}
+.nav h1{
+    padding-right: 20px;
+}
