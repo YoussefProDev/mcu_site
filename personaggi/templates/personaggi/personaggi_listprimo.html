@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% block nav %}
+      {% include "./partials/_nav.html" %}
+    {% endblock %}
+    <div class="flex flex-row justify-between">
+        {% for personaggio in personaggi %}
+            <div class="bg-white">
+                <div class="mx-auto px-5 py-12">
+               
+                    <div class="overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-60">
+                        <img src="{{ personaggio.img }}" alt="immagine {{ personaggio.nome }}" class="h-54 w-44 object-center">
+                    </div>
+                    
+                
+                    <p class="mt-1 text-sm text-gray-500">{{ personaggio.nome }}</p>
+            
+                </div>
+            </div>
+      
+        {% endfor %}
+    </div>
+    
+
+
+    
+</body>
+</html> 

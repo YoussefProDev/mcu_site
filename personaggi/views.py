@@ -26,7 +26,7 @@ class PersonaggiDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
+        
         context['nome'] = Personaggi.objects.all()[0].nome
         context['sopranome'] = Personaggi.objects.all()[0].sopranome
         context['attore'] = Personaggi.objects.all()[0].attore
@@ -39,9 +39,10 @@ class PersonaggiList(ListView):
     # paginate_by = 100  # if pagination is desired
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['nome'] = Personaggi.objects.all()[0].nome
-        context['sopranome'] = Personaggi.objects.all()[0].sopranome
-        context['attore'] = Personaggi.objects.all()[0].attore
-        context['descrizione'] = Personaggi.objects.all()[0].descrizione
-        context['ablita'] = Personaggi.objects.all()[0].abilita
+        context['personaggi'] = Personaggi.objects.all()[0:] 
+        # context['nome'] = Personaggi.objects.all()[0:].nome
+        # context['sopranome'] = Personaggi.objects.all()[0:].sopranome
+        # context['attore'] = Personaggi.objects.all()[0:].attore
+        # context['descrizione'] = Personaggi.objects.all()[0:].descrizione
+        # context['ablita'] = Personaggi.objects.all()[0:].abilita
         return context
