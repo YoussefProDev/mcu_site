@@ -18,5 +18,5 @@ class Personaggi(models.Model):
         return reverse("personaggi:PersonaggiDetail", kwargs={"slug": self.slug})
     
     class Meta():
-        pass
+        verbose_name_plural = "Personaggi"
     
