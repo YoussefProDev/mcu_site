@@ -17,6 +17,8 @@ class Productions(models.Model):
         ("F5","Fase 5"),
     ]
     fase = models.CharField(max_length=2 ,choices=fasi,default=fasi[-1])
+    # print(fase)
+    print(len(fasi))
     descrizione = models.TextField(max_length=500,null=True)
     uscita = models.DateField(null=True)
     # protagonisti = models.TextField(max_length=100, null=True)
