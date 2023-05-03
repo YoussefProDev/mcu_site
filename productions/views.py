@@ -36,6 +36,7 @@ class ProductionsDetail(DetailView):
 
 class ProductionsList(ListView):
     model = Productions
+    template_name = "productions/productions_list.html"
     # paginate_by = 100  # if pagination is desired
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
