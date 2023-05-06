@@ -12,10 +12,13 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['produzioni'] = Productions.objects.all()[0:]
-        context['f1'] = Productions.objects.all().filter(fase = "F1")
-        context['f2'] = Productions.objects.all().filter(fase = "F2")
-        context['f3'] = Productions.objects.all().filter(fase = "F3")
-        context['f4'] = Productions.objects.all().values('fase').filter(fase = "F4")
+        # context['fasi'] = Productions.objects.all().filter(fase = "fase")
+        
+        context['f1'] = Productions.objects.all().filter(fase = "Fase 1")
+        context['f2'] = Productions.objects.all().filter(fase = "Fase 2")
+        context['f3'] = Productions.objects.all().filter(fase = "Fase 3")
+        context['f4'] = Productions.objects.all().filter(fase = "Fase 4")
+        context['fasi'] = [context['f1'],context['f2'],context['f3'],context['f4']]
         # print(context['fasi'])
         # print("fffff",context['fasi'])
         # context["nfasi"] = len("fasi")2

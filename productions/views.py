@@ -23,10 +23,10 @@ class ProductionsView(TemplateView):
 
 class ProductionsDetail(DetailView):
     model = Productions
-
+    template_name = "productions/productions_detail.html"
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        
+        context['films'] = Productions.objects.all()[0:] 
         # context['nome'] = Personaggi.objects.all()[0].nome
         # context['sopranome'] = Personaggi.objects.all()[0].sopranome
         # context['attore'] = Personaggi.objects.all()[0].attore
@@ -41,6 +41,7 @@ class ProductionsList(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['films'] = Productions.objects.all()[0:] 
+        # context['prot'] = Productions.objects.all()[0].protagonisti
         # context['nome'] = Personaggi.objects.all()[0:].nome
         # context['sopranome'] = Personaggi.objects.all()[0:].sopranome
         # context['attore'] = Personaggi.objects.all()[0:].attore

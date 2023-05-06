@@ -1,37 +1,31 @@
+{% extends "home/index.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Document</title>
-</head>
-<body>
-    {% block nav %}
-      {% include "./partials/_nav.html" %}
+
+    {% block hero %}
+      
     {% endblock %}
-    <div class="flex flex-row justify-between">
-        {% for film in films %}
-            <div class="bg-white">
-                <div class="mx-auto px-5 py-12">
-               
-                    <div class="overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-60">
-                        <img src="{{ film.img }}" alt="immagine {{ film.nome }}" class="h-54 w-44 object-center">
-                    </div>
+    {% block body %}
+    <div class="flex flex-wrap relative w-full h-[100vh] ">
+        <div class="flex flex-wrap absolute top-0 left-0 px-4 py-6 w-auto gap-4 ">
+            {% for film in films %}
+                <div class=" mx-auto flex flex-col w-[200px]">
+                <a href="{{ film.get_absolute_url }}">
+                    <img class=" object-cover rounded-md h-[300px] w-[200px] " src="{{ film.img.url }}" alt="immagine: {{ film.nome }}"  >
                     
-                
-                    <p class="mt-1 text-sm text-gray-500">{{ film.nome }}</p>
+                    
+                        <p class="mt-1 text-sm text-gray-500">{{ film.nome }}</p>
+                    </a>  
+                    {% for protagonista in film.protagonisti.all %}
+                        <p class="mt-1 text-sm text-gray-500">{{ protagonista }}</p>
+                    {% endfor %}
+                    
             
                 </div>
-            </div>
-      
-        {% endfor %}
+          
+            {% endfor %}
+        </div>
+        <!-- <button id="prev"class="absolute w-10 h-10 bg-slate-500 translate-y-[-50%] top-1/2 left-2"></button>
+        <button id="next"class="absolute w-10 h-10 bg-slate-500 translate-y-[-50%] top-1/2 right-2"></button> -->
     </div>
-    
-
-
-    
-</body>
-</html> 
+   
+    {% endblock %}

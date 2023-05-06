@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'home/css/style.css' %} ">
+    <!-- <link rel="stylesheet" href="{% static 'home/css/caro.css' %}"> -->
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{% static 'home/bootstrap/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -13,19 +15,20 @@
 </head>
 <body>
   
-  <div class="container-fluid">
+
     {% block nav %}
       {% include "home/partials/_nav.html" %}
     {% endblock %}
     {% block hero %}
       {% include "home/partials/_hero.html" %}
     {% endblock %}
-    {% block fasi %}
+    {% block body %}
       {% include "home/partials/body.html" %}
     {% endblock %}
-  </div> 
+    
     
     <script src="{% static 'home/bootstrap/js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'home/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>
