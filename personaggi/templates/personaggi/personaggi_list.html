@@ -1,5 +1,5 @@
 {% extends "home/index.html" %}
-
+{% load static %}
 
     {% block hero %}
       
@@ -11,10 +11,17 @@
             {% for personaggio in personaggi %}
 
                 <div class=" mx-auto flex flex-col w-[200px]">
-    
-                    <img class=" object-cover rounded-md h-[300px] w-[200px] " src="{{ personaggio.img.url }}" alt="immagine: {{ personaggio.nome }}"  >
+                    <a href="{{ personaggio.get_absolute_url }}">
+                        {% if personaggio.img %}
+                        <img class=" object-cover rounded-md h-[300px] w-[200px] " src="{{ personaggio.img.url }}" alt="immagine: {{ personaggio.nome }}" >
+                        
+                        {% else %}
+                        <img class=" object-cover rounded-md h-[300px] w-[200px] " src="{% static 'media/image/notfound.jpg' %}" alt="immagine: {{ personaggio.nome }}"  >
+                        {% endif %}
                     
-                    <a href="{{ personaggio.get_absolute_url }}"><p class="mt-1 text-gray-500">{{ personaggio.nome }}</p></a>
+                    
+                         <p class="mt-1 text-gray-500">{{ personaggio.nome }}</p>
+                    </a>
                     
             
                 </div>

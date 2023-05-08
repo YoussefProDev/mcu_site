@@ -1,14 +1,21 @@
+{% load static %}
 {% for fase in fasi %}
     <h1 class="text-2xl mt-4 pl-6" >Fase  {{ forloop.counter }}</h1>
-    <div class="flex relative w-full h-[374px] overflow-hidden ">
-    <div id="slider" class="transition-[0.3s] duration-500 flex absolute top-0 left-0 px-4 py-6 w-auto gap-4 ">
+    <div class="flex flex-wrap relative w-full h-[100vh]">
+    <!-- <div id="slider" class="transition-[0.3s] h-[400px] duration-500 flex absolute top-0 left-0 px-4 py-6 w-auto gap-4 "> -->
+        <div class="flex flex-wrap absolute top-0 left-0 px-4 py-6 w-auto gap-4 ">
         {% for f in fase %}
         
-            <div class="mx-auto flex flex-col px-5 py-12 w-[250px]">
+            <div class="mx-auto flex flex-col px-5 py-12 h-[450px] w-[250px]">
                 <a href="{{ f.get_absolute_url }}">
                     <h4>{{ f.nome }}</h4>
-
-                    <img class="overflow-hidden rounded-md" src="{{ f.img.url }}" alt="immagine {{ f.nome }}">
+                    {% if f.img.url %}
+                        <img class="overflow-hidden rounded-md" src="{{ f.img.url }}" alt="immagine {{ f.nome }}">
+                    
+                    {% else %}
+                    <img class=" object-cover rounded-md h-[300px] w-[200px] " src="{% static 'media/image/notfound.jpg' %}" alt="immagine: {{ f.nome }}"  >>
+                    {% endif %}
+                   
 
                 </a>
                 
@@ -23,8 +30,8 @@
             </div>
        
         {% endfor %}
-        <button id="prev"class="absolute w-10 h-10 bg-slate-500 translate-y-[-50%] top-1/2 left-2"></button>
-        <button id="next"class="absolute w-10 h-10 bg-slate-500 translate-y-[-50%] top-1/2 right-2"></button>
+        <!-- <button id="prev"class="absolute w-10 h-10 bg-slate-500 translate-y-[-50%] top-1/2 left-2"></button>
+        <button id="next"class="absolute w-10 h-10 bg-slate-500 translate-y-[-50%] top-1/2 right-2"></button> -->
 
     </div>
 </div>

@@ -10,9 +10,12 @@
             {% for film in films %}
                 <div class=" mx-auto flex flex-col w-[200px]">
                 <a href="{{ film.get_absolute_url }}">
-                    <img class=" object-cover rounded-md h-[300px] w-[200px] " src="{{ film.img.url }}" alt="immagine: {{ film.nome }}"  >
+                    {% if film.img.url %}
+                        <img class=" object-cover rounded-md h-[300px] w-[200px] " src="{{ film.img.url }}" alt="immagine: {{ film.nome }}"  >
                     
-                    
+                    {% else %}
+                    <img class=" object-cover rounded-md h-[300px] w-[200px] " src="{% static 'media/image/notfound.jpg' %}" alt="immagine: {{ film.nome }}"  >
+                    {% endif %}
                         <p class="mt-1 text-sm text-gray-500">{{ film.nome }}</p>
                     </a>  
                     {% for protagonista in film.protagonisti.all %}

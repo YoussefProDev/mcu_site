@@ -23,7 +23,7 @@ function translateToLeft() {
     slider.style.transform = `translateX(${x}px)`
 }
 function checkerLeft() {
-    if (x + 248 >= 0)  {
+    if (x + 28 >= 0)  {
 
         prevButton.setAttribute('disabled', '')
         x = 0
@@ -37,7 +37,7 @@ function checkerLeft() {
 }
 console.log(slider.offsetWidth  );
 function checkerRight() {
-    if (x - 248 <= -(slider.offsetWidth - window.innerWidth)){
+    if (x - 238 <= -(slider.offsetWidth - window.innerWidth)){
         nextButton.setAttribute('disabled', '')
         x = -(slider.offsetWidth - window.innerWidth)
         return false
