@@ -1,17 +1,46 @@
 {% extends "home/index.html" %}
+{% load static %}
 
-
-    {% block hero %}
+{% block hero %}
       
-    {% endblock %}
-    {% block body %}
-        <h1>nome : {{ object.nome }}</h1>
-        <br>
-        {% for protagonista in object.protagonisti.all %}
+{% endblock %}
+{% block body %}
+<div class="mx-6">
 
-                <p>{{protagonista}}</p>
-        {% endfor %}
-        <br>
-        <h2>descrizione: {{ object.descrizione }}</h2>
 
-    {% endblock %}
+    <div class="flex flex-row gap-4" >
+        <img class="object-cover  h-[400px] w-[250px] rounded-md " src="{{ object.img.url }}" alt="">
+        <div class="flex flex-col gap-4 pt-3 text-lg " >
+            <h1 >nome: {{ object.nome }}</h1>
+            <h1>{{ object.fase }}</h1>
+            <h1>uscita: {{ object.uscita }}</h1>
+            
+            <p>Descrizione: {{ object.descrizione }}</p>
+            
+        </div>
+       
+    </div>
+        <a name="protagonisti"></a>
+        <h1 class="pt-8">i personaggi sono: </h1>
+        <div class=" flex flex-wrap gap-4 pt-4">
+            {% for personaggi in object.protagonisti.all %}
+            
+            <a href="{{ personaggi.get_absolute_url }}">
+                {% if personaggi.img %}
+                <img class=" object-cover rounded-md h-[250px] w-[165px] " src="{{ personaggi.img.url }}" alt="immagine: {{ personaggi.nome }}" >
+                
+                {% else %}
+                <img class=" object-cover rounded-md h-[200px] w-[100px] " src="{% static 'media/image/notfound.jpg' %}" alt="immagine: {{ personaggi.nome }}"  >
+                {% endif %}
+            
+            
+                 <p class="mt-1 text-gray-500">{{ personaggi.nome }}</p>
+            </a>
+            
+            {% endfor %}
+        </div>
+        
+    
+    
+</div>
+{% endblock %}

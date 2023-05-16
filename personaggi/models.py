@@ -4,7 +4,7 @@ from django.urls import reverse
 class Personaggi(models.Model):
     nome = models.TextField(max_length=100)
     sopranome = models.TextField(max_length=100)
-    slug = models.SlugField(max_length=100 , null=True)
+    slug = models.SlugField(max_length=100 , null=True,unique=True)
     attore = models.TextField(max_length=100,null=True)
     img = models.ImageField(upload_to="image/personaggi/" , null=True, blank=True, default="image/notfound.jpg") 
     descrizione = models.TextField(max_length=10000,null=True)

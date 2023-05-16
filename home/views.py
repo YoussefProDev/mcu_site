@@ -20,7 +20,7 @@ class HomeView(TemplateView):
         context['f4'] = Productions.objects.all().filter(fase = "Fase 4")
         context['fasi'] = [context['f1'],context['f2'],context['f3'],context['f4']]
         # print(context['fasi'])
-        # print("fffff",context['fasi'])
+    # print("fffff",context['fasi'])
         # context["nfasi"] = len("fasi")2
         # print("nfasi")
         return context

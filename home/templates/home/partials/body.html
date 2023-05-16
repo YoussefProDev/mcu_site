@@ -1,14 +1,14 @@
 {% load static %}
 {% for fase in fasi %}
+
     <h1 class="text-2xl mt-4 pl-6" >Fase  {{ forloop.counter }}</h1>
-    <div class="flex flex-wrap relative w-full h-[100vh]">
-    <!-- <div id="slider" class="transition-[0.3s] h-[400px] duration-500 flex absolute top-0 left-0 px-4 py-6 w-auto gap-4 "> -->
-        <div class="flex flex-wrap absolute top-0 left-0 px-4 py-6 w-auto gap-4 ">
+    <div class="flex flex-row relative w-full h-[450px] overflow-hidden">
+        <!-- <div id="slider" class="transition-[0.3s] h-[400px] duration-500 flex absolute top-0 left-0 px-4 py-6 w-auto gap-4 "> -->
+        <div id="slider" class="transition-[0.3s] duration-500 flex absolute top-0 left-0 px-4 py-6 w-auto gap-2 ">
         {% for f in fase %}
-        
             <div class="mx-auto flex flex-col px-5 py-12 h-[450px] w-[250px]">
                 <a href="{{ f.get_absolute_url }}">
-                    <h4>{{ f.nome }}</h4>
+                    <h4>{{ f.nome|linebreaksbr|truncatechars:20 }}</h4>
                     {% if f.img.url %}
                         <img class="overflow-hidden rounded-md" src="{{ f.img.url }}" alt="immagine {{ f.nome }}">
                     
@@ -19,22 +19,24 @@
 
                 </a>
                 
-            
+                   
                     {% for protagonista in f.protagonisti.all %}
                         {% if forloop.counter < 2 %}
                             <p class="mt-1 text-sm text-gray-500">{{ protagonista }}</p>
                         {% endif %}
                     {% endfor %}
-                    <p>altri.....</p>
+                    <a href="{{ f.get_absolute_url }}#protagonisti"><p>altri.....</p></a>
                 
             </div>
-       
-        {% endfor %}
-        <!-- <button id="prev"class="absolute w-10 h-10 bg-slate-500 translate-y-[-50%] top-1/2 left-2"></button>
-        <button id="next"class="absolute w-10 h-10 bg-slate-500 translate-y-[-50%] top-1/2 right-2"></button> -->
+            
+            {% endfor %}
+        
+        </div>
+        <button id="prev" class="absolute text-8xl text-red-300 translate-y-[-50%] top-[40%] left-2"><</button>
+        <button id="next" class="absolute text-8xl text-red-300 translate-y-[-50%] top-[40%] right-2">></button>
 
     </div>
-</div>
+
 {% endfor %}
 
 

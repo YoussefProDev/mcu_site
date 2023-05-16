@@ -6,7 +6,7 @@ from django import forms
 class Productions(models.Model):
     nome = models.TextField(max_length=100)
     # sopranome = models.TextField(max_length=50)
-    slug = models.SlugField(max_length=100 , null=True)
+    slug = models.SlugField(max_length=100 , null=True,unique=True)
     # attore = models.TextField(max_length=50,null=True)
     img = models.ImageField(upload_to="image/productions/" , null=True, blank=True, default="image/notfound.jpg")
     fasi = [
@@ -21,7 +21,7 @@ class Productions(models.Model):
     print(len(fasi))
     descrizione = models.TextField(max_length=10000,null=True)
     uscita = models.DateField(null=True)
-    protagonisti = models.ManyToManyField(Personaggi, related_name="protagonisti")
+    protagonisti = models.ManyToManyField(Personaggi, related_name="RFilms", related_query_name="RFilm")
     # protagonisti = models.ForeignKey(Personaggi,on_delete= models.CASCADE, null=True)
     
     

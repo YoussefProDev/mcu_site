@@ -1,14 +1,45 @@
 {% extends "home/index.html" %}
-
+{% load static %}
 
     {% block hero %}
       
     {% endblock %}
     {% block body %}
+    <div class="mx-6">
 
-        <h1>attore: {{ personaggi.attore }}</h1>
-        <br>
-        <br>
-        <h2>descrizione: {{ personaggi.descrizione }}</h2>
-
+   
+        <div class="flex flex-row gap-4" >
+            <img class="object-cover  h-[400px] w-[250px] rounded-md " src="{{ personaggi.img.url }}" alt="">
+            <div class="flex flex-col gap-4 pt-3 text-lg " >
+                <h1 >Attore: {{ personaggi.attore }}</h1>
+            
+                <h1>Sopranome: {{ personaggi.sopranome }}</h1>
+                
+                <p >Descrizione: {{ personaggi.descrizione }}</p>
+                <p>Abilita: {{ personaggi.abilita }} </p>
+            </div>
+           
+        </div>
+        
+            <h1 class="pt-8" >i film collegati sono: </h1>
+            <div class=" flex flex-wrap gap-4 pt-4">
+                {% for film in presenti.all %}
+                <a href="{{ film.get_absolute_url }}">
+                    {% if film.img %}
+                    <img class=" object-cover rounded-md h-[250px] w-[165px] " src="{{ film.img.url }}" alt="immagine: {{ film.nome }}" >
+                    
+                    {% else %}
+                    <img class=" object-cover rounded-md h-[200px] w-[100px] " src="{% static 'media/image/notfound.jpg' %}" alt="immagine: {{ film.nome }}"  >
+                    {% endif %}
+                
+                
+                     <p class="mt-1 text-gray-500">{{ film.nome }}</p>
+                </a>
+                
+                {% endfor %}
+            </div>
+            
+        
+        
+    </div>
     {% endblock %}
