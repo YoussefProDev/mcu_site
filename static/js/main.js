@@ -1,11 +1,12 @@
 
 let x = 0;
 
-let slider = document.getElementById("slider");
-
-let nextButton = document.getElementById("next");
-
-let prevButton = document.getElementById("prev");
+let slider = document.getElementsByClassName('slider')
+console.log(slider);
+let nextButton = document.getElementsByClassName("next");
+console.log(nextButton);
+let prevButton = document.getElementsByClassName("prev");
+console.log(prevButton);
 console.log("hello world"); 
 console.log("fuziona");
 console.log(x)
@@ -14,45 +15,48 @@ console.log(window.innerWidth);
 // console.log(nextButton.);
 nextButton.onclick = translateToRight   
 prevButton.onclick = translateToLeft
-
-function translateToRight() {
-    console.log("to right")
-    if (checkerRight()) {
-        console.log("x + 208");
-        x -= 200
-        slider.style.transform = `translateX(${x}px)`
+for (let i = 0; i < nextButton.length; i++) {
+    nextButton[i].addEventListener('click', translateToRight) 
+    prevButton[i].addEventListener('click', translateToLeft) 
+    function translateToRight() {
+        console.log("to right")
+        if (checkerRight(i)) {
+            console.log("x + 208");
+            x -= 190
+            slider[i].style.transform = `translateX(${x}px)`
+        }
+       
     }
-   
-}
-
-function translateToLeft() {
-    console.log("to left")
-    if (checkerLeft()) {
-        x += 208 
-        slider.style.transform = `translateX(${x}px)`
-    }
-}
-function checkerLeft() {
-    if (x + 200 >= 0)  {
-
-        prevButton.setAttribute('disabled', '')
-        x = 0
-        return false
-     } else {
-
-         nextButton.removeAttribute('disabled')
-         return true
-     } 
     
-}
-
-function checkerRight() {
-    if (x - 100 <= -(slider.offsetWidth - window.innerWidth)){
-        nextButton.setAttribute('disabled', '')
-        x = -(slider.offsetWidth - window.innerWidth)
-        return false
-    } else {
-        prevButton.removeAttribute('disabled')        
-        return true
+    function translateToLeft() {
+        console.log("to left")
+        if (checkerLeft(i)) {
+            x += 190
+            slider[i].style.transform = `translateX(${x}px)`
+        }
+    }
+    function checkerLeft() {
+        if (x + 80 >= 0)  {
+    
+            prevButton[i].setAttribute('disabled', '')
+            x = 0
+            return false
+         } else {
+    
+             nextButton[i].removeAttribute('disabled')
+             return true
+         } 
+        
+    }
+    
+    function checkerRight() {
+        if (x - 100 <= -(slider[i].offsetWidth - window.innerWidth)){
+            nextButton[i].setAttribute('disabled', '')
+            x = -(slider[i].offsetWidth - window.innerWidth)
+            return false
+        } else {
+            prevButton[i].removeAttribute('disabled')        
+            return true
+        }
     }
 }

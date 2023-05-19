@@ -6,15 +6,18 @@
     {% endblock %}
     {% block body %}
     <div>
-        <form class="flex flex-row justify-center gap-3 ">
-            <input type="checkbox"  name="fase1" value="fase 1">
+        <form method="get"  class="flex flex-row justify-center gap-3 ">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <!-- <input type="checkbox"  name="fase1" value="fase 1">
             <label for="fase1">Fase 1</label>
             <input type="checkbox" name="fase2" value="fase 2">
             <label for="fase2">Fase 2</label>
             <input type="checkbox"  name="fase3" value="fase 3">
-            <label for="fase3">Fase 3</label>
+            <label for="fase3">Fase 3</label> -->
+            <button type="submit">Filter</button>
             
-          </form>
+        </form>
     </div>
     <div class="flex flex-wrap relative w-full h-[100vh] ">
         <div class="flex flex-wrap absolute top-0 left-0 px-4 py-6 w-auto gap-4 ">
