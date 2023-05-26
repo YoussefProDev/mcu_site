@@ -19,8 +19,8 @@
             
         </form>
     </div>
-    <div class="flex flex-wrap relative w-full h-[100vh] ">
-        <div class="flex flex-wrap absolute top-0 left-0 px-4 py-6 w-auto gap-4 ">
+    <!-- <div class="flex flex-wrap relative w-full h-[100vh] "> -->
+        <div class="flex flex-wrap top-0 left-0 px-4 py-6 w-auto gap-4 ">
             {% for film in films %}
                 <div class=" mx-auto flex flex-col w-[200px]">
                 <a href="{{ film.get_absolute_url }}">
@@ -42,7 +42,7 @@
                 </div>
           
             {% endfor %}
-        </div>
+        <!-- </div> -->
         <!-- <button id="prev"class="absolute w-10 h-10 bg-slate-500 translate-y-[-50%] top-1/2 left-2"></button>
         <button id="next"class="absolute w-10 h-10 bg-slate-500 translate-y-[-50%] top-1/2 right-2"></button> -->
     </div>
