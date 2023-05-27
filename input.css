@@ -6,7 +6,8 @@
 .open-menu {
         flex-direction: column;
         display: flex;
-        z-index: 30;
+        
+        position: absolute;
         right: 0;
         transform: translateY(100%);
         width: 100%;
