@@ -893,6 +893,18 @@ video {
   padding-left: 1.25rem;
 }
 
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+
+.pb-\[\] {
+  padding-bottom: ;
+}
+
+.pb-\[50px\] {
+  padding-bottom: 50px;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1017,6 +1029,30 @@ video {
 
   .sm\:pt-4 {
     padding-top: 1rem;
+  }
+
+  .sm\:pt-6 {
+    padding-top: 1.5rem;
+  }
+
+  .sm\:pt-9 {
+    padding-top: 2.25rem;
+  }
+
+  .sm\:pt-\[\] {
+    padding-top: ;
+  }
+
+  .sm\:pt-\[10\] {
+    padding-top: 10;
+  }
+
+  .sm\:pt-\[10\%\] {
+    padding-top: 10%;
+  }
+
+  .sm\:pt-\[8\%\] {
+    padding-top: 8%;
   }
 
   .sm\:text-3xl {
