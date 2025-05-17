@@ -1,0 +1,19 @@
+services:
+  mcu-site:
+    image: ghcr.io/youssefprodev/mcu-site:${GIT_COMMIT_HASH:-latest}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mcu-site.rule=Host(`mcu.youssefprodev.com`)"
+      - "traefik.http.routers.mcu-site.entrypoints=websecure"
+      - "traefik.http.routers.mcu-site.tls=true"
+      - "traefik.http.routers.mcu-site.tls.certresolver=cloudflare"
+      - "traefik.http.services.mcu-site.loadbalancer.server.port=8000"
+    networks:
+      - traefik
+    command: python manage.py runserver 0.0.0.0:8000
+   
+
+
+networks:
+  traefik:
+    external: true

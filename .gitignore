@@ -23,4 +23,6 @@ venv/
 local_settings.py
 
 .env
+/lib
+/bin
 
