@@ -16,8 +16,8 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-MEDIA_ROOT = ''
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / "media"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -26,7 +26,7 @@ MEDIA_URL = ''
 SECRET_KEY = 'django-insecure-x$z@l0v5ue_v+=b4+w+0-39t&^ez*u$ca2ondqm868@cv!p7)%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["mcu.youssefprodev.com","localhost",
     "127.0.0.1",]
@@ -127,17 +127,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-# STATIC_ROOT = Path.joinpath(BASE_DIR, 'static/')
+
+# Static
 STATIC_URL = '/static/'
-# STATIC_ROOT = BASE_DIR / 'productionfiles'
-STATICFILES_DIRS = [
-   os.path.join(BASE_DIR , 'static/')
-]
-MEDIA_ROOT = 'static/media/'
-# MEDIAFILES_DIRS = [
-#    os.path.join(BASE_DIR , 'media/')
-# ]
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # per collectstatic
+
+# Media
 MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Default primary key field type
