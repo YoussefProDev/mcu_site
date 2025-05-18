@@ -17,7 +17,7 @@ services:
     networks:
       - traefik
   command: > 
-    sh -c "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn mcu_site.wsgi:application --bind 0.0.0.0:8000"
+   sh -c "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn mcu_site.wsgi:application --bind 0.0.0.0:8000"
 
 
 
