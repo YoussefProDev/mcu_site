@@ -24,7 +24,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the Django project to the container
 COPY . /app/
-
+RUN chmod +x /app/entrypoint.sh
 # Expose the Django port
 EXPOSE 8000
 
