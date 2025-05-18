@@ -26,9 +26,10 @@ MEDIA_URL = ''
 SECRET_KEY = 'django-insecure-x$z@l0v5ue_v+=b4+w+0-39t&^ez*u$ca2ondqm868@cv!p7)%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["mcu.youssefprodev.com"]
+ALLOWED_HOSTS = ["mcu.youssefprodev.com","localhost",
+    "127.0.0.1",]
 CSRF_TRUSTED_ORIGINS = [
     "https://mcu.youssefprodev.com"
 ]
