@@ -1,6 +1,12 @@
 services:
   mcu-site:
     image: ghcr.io/youssefprodev/mcu-site:${GIT_COMMIT_HASH:-latest}
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      update_config:
+        order: start-first
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.mcu-site.rule=Host(`mcu.youssefprodev.com`)"
