@@ -25,7 +25,9 @@ urlpatterns = [
     path('',include('home.urls')),
     path('personaggi/',include('personaggi.urls')),
     path('productions/',include('productions.urls')),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+# # Serve i media anche in produzione (attenzione: non per alti volumi!)
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 if settings.DEBUG:

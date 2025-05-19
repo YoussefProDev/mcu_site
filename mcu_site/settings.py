@@ -34,7 +34,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 
 # Application definition
-w
+
 INSTALLED_APPS = [
     'productions.apps.ProductionsConfig',
     'personaggi.apps.PersonaggiConfig',

@@ -15,7 +15,7 @@ class ProductionsDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['films'] = Productions.objects.all()[0] 
-        print(context['films'].protagonisti)
+        # print(context['films'].protagonisti)
         # context['nome'] = Personaggi.objects.all()[0].nome
         # context['sopranome'] = Personaggi.objects.all()[0].sopranome
         # context['attore'] = Personaggi.objects.all()[0].attore

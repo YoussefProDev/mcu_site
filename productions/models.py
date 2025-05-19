@@ -18,7 +18,7 @@ class Productions(models.Model):
     ]
     fase = models.CharField(max_length=10 ,choices=fasi,default=fasi[-1])
     # print(fase)
-    print(len(fasi))
+    # print(len(fasi))
     descrizione = models.TextField(max_length=10000,null=True)
     uscita = models.DateField(null=True)
     protagonisti = models.ManyToManyField(Personaggi, related_name="RFilms", related_query_name="RFilm")

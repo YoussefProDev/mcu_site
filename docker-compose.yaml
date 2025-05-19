@@ -10,8 +10,6 @@ services:
       - "--api.insecure=true"
       - "--providers.docker=true"
       - "--entrypoints.web.address=:80"
-      - "--entrypoints.websecure.address=:443"
-      - "--entrypoints.websecure.http.tls=false"
 
     labels:
       - "traefik.enable=true"
@@ -20,6 +18,7 @@ services:
       - "traefik.http.routers.traefik.entrypoints=web"
     networks:
       - traefik
+
   mcu-site:
     build:
       context: .
@@ -27,13 +26,27 @@ services:
     container_name: mcu-site
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.mcu-site.rule=Host(`mcu.localhost`) && Host(`mcu.localhost`)"
+      - "traefik.http.routers.mcu-site.rule=Host(`mcu.localhost`)"
       - "traefik.http.routers.mcu-site.entrypoints=web"
       - "traefik.http.services.mcu-site.loadbalancer.server.port=8000"
-
+    volumes:
+      - media:/app/media
+    networks:
+      - traefik
+  media:
+    image: nginx:alpine
+    volumes:
+      - media:/usr/share/nginx/html:ro
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.media.rule=Host(`mcu.localhost`) && PathPrefix(`/media`)
+      - traefik.http.routers.media.entrypoints=web
     networks:
       - traefik
 
 networks:
   traefik:
+    external: true
+volumes:
+  media:
     external: true
