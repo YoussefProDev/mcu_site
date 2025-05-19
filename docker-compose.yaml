@@ -27,7 +27,7 @@ services:
     container_name: mcu-site
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.mcu-site.rule=Host(`mcu.localhost`)"
+      - "traefik.http.routers.mcu-site.rule=Host(`mcu.localhost`) && Host(`mcu.localhost`)"
       - "traefik.http.routers.mcu-site.entrypoints=web"
       - "traefik.http.services.mcu-site.loadbalancer.server.port=8000"
 
@@ -47,4 +47,7 @@ services:
 
 networks:
   traefik:
+    external: true
+volumes:
+  media:
     external: true

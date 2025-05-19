@@ -39,3 +39,4 @@ networks:
     external: true
 volumes:
   media-files:
+    external: true
