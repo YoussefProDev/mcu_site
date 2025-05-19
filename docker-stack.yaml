@@ -33,7 +33,7 @@ services:
         order: start-first
     labels:
       - traefik.enable=true
-      - traefik.http.routers.media.rule=Host(mcu.youssefprodev.com) && PathPrefix(`/media`)
+      - traefik.http.routers.media.rule=Host(`mcu.youssefprodev.com`) && PathPrefix(`/media`)
       - traefik.http.routers.media.entrypoints=websecure
       - traefik.http.routers.media.tls.certresolver=cloudflare
       - "traefik.http.routers.media.tls=true"
