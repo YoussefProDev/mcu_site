@@ -38,5 +38,5 @@ networks:
   traefik:
     external: true
 volumes:
-  media-files:
+  media:
     external: true
