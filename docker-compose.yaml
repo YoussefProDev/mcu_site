@@ -6,3 +6,12 @@ services:
     container_name: mcu-site
     ports:
       - "8000:8000"
+  media:
+    image: nginx:alpine
+    volumes:
+      - ./media:/usr/share/nginx/html/media:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.media.rule=PathPrefix(`/media`)"
+      - "traefik.http.routers.media.entrypoints=web"
+      - "traefik.http.services.media.loadbalancer.server.port=80"
