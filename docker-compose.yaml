@@ -6,6 +6,3 @@ services:
     container_name: mcu-site
     ports:
       - "8000:8000"
-
-    environment:
-      - GIT_COMMIT_HASH=${GIT_COMMIT_HASH}
