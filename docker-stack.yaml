@@ -24,7 +24,7 @@ services:
   media:
     image: nginx:alpine
     volumes:
-      - media:/usr/share/nginx/html:ro
+      - media:/usr/share/nginx/html/media:ro
     deploy:
       replicas: 1
       restart_policy:
