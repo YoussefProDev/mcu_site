@@ -26,35 +26,35 @@ services:
     container_name: mcu-site
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.mcu-site.rule=(Host(`mcu.localhost`) && !PathPrefix(`/media`))"
+      - "traefik.http.routers.mcu-site.rule=Host(`mcu.localhost`)"
       - "traefik.http.routers.mcu-site.entrypoints=web"
       - "traefik.http.services.mcu-site.loadbalancer.server.port=8000"
-    volumes:
-      - media:/app/media # monta la cartella media anche qui, se necessario
+    # volumes:
+    #   - ./media:/app/media # monta la cartella media anche qui, se necessario
     networks:
       - traefik
     depends_on:
       - traefik
-  media:
-    image: nginx:alpine
-    container_name: mcu-site-media
+  # media:
+  #   image: nginx:alpine
+  #   container_name: mcu-site-media
 
-    volumes:
-      - media:/usr/share/nginx/html/media:ro
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.media.rule=(Host(`mcu.localhost`) && PathPrefix(`/media`))"
-      - "traefik.http.routers.media.entrypoints=web"
-      - "traefik.http.services.media.loadbalancer.server.port=80"
-    networks:
-      - traefik
-    depends_on:
-      - traefik
-      - mcu-site
+  #   volumes:
+  #     - ./media:/usr/share/nginx/html/media:ro
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.media.rule=(Host(`mcu.localhost`) && PathPrefix(`/media`))"
+  #     - "traefik.http.routers.media.entrypoints=web"
+  #     - "traefik.http.services.media.loadbalancer.server.port=80"
+  #   networks:
+  #     - traefik
+  #   depends_on:
+  #     - traefik
+  #     - mcu-site
 
 networks:
   traefik:
     external: true
-volumes:
-  media:
-    external: true
+# volumes:
+#   media:
+#     external: true

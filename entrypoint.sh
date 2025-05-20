@@ -7,13 +7,13 @@ python manage.py migrate
 echo "📦 Raccolgo i file statici..."
 python manage.py collectstatic --noinput
 
-echo Popola /app/media solo se è vuoto
-if [ -z "$(ls -A /app/media 2>/dev/null)" ]; then
-  echo "📁 Popolo il volume media..."
-  cp -r /app/default_media/ /app/media/
-else
-  echo "📁 Il volume media NON è vuoto, salto la copia iniziale."
-fi
+# echo Popola /app/media solo se è vuoto
+# if [ -z "$(ls -A /app/media 2>/dev/null)" ]; then
+#   echo "📁 Popolo il volume media..."
+#   cp -r /app/default_media/ /app/media/
+# else
+#   echo "📁 Il volume media NON è vuoto, salto la copia iniziale."
+# fi
 
 # Avvia Gunicorn
 echo "🚀 Avvio Gunicorn..."
