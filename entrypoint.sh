@@ -10,11 +10,15 @@ python manage.py collectstatic --noinput
 echo Popola /app/media solo se è vuoto
 if [ ! -d /app/media/images ] || [ -z "$(ls -A /app/media/images 2>/dev/null)" ]; then
   echo "📁 La cartella /app/media/images non esiste o è vuota. Popolo il volume media..."
-  cp -r /app/default_media/* /app/media/
+  
+  if [ -d /app/default_media ]; then
+    cp -r /app/default_media/* /app/media/
+  else
+    echo "⚠️  Attenzione: /app/default_media NON esiste!"
+  fi
 else
-  echo "📁 La cartella /app/media/images esiste ed è popolata, salto la copia iniziale."
+  echo "📁 Il volume media è già popolato. Nessuna copia eseguita."
 fi
-
 
 # Avvia Gunicorn
 echo "🚀 Avvio Gunicorn..."
