@@ -7,9 +7,6 @@ services:
         condition: on-failure
       update_config:
         order: start-first
-    depends_on:
-      media:
-        condition: service_healthy
     volumes:
       - media:/app/media
     labels:
@@ -27,6 +24,7 @@ services:
 
   media:
     image: nginx:alpine
+    command: /bin/sh -c "sleep 3 && nginx -g 'daemon off;'"
     volumes:
       - media:/usr/share/nginx/html/media:ro
     deploy:
@@ -44,7 +42,7 @@ services:
       - "traefik.http.routers.media.tls.certresolver=cloudflare"
       - "traefik.http.services.media.loadbalancer.server.port=80"
     healthcheck:
-      test: ["CMD", "sh", "-c", "apk add curl >/dev/null && curl -sf https://mcu.youssefprodev.com/media/image/notfound.jpg"]
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost/media/image/notfound.jpg"]
       interval: 5s
       timeout: 2s
       retries: 5
