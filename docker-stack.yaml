@@ -7,8 +7,8 @@ services:
         condition: on-failure
       update_config:
         order: start-first
-    volumes:
-      - media:/app/media
+    # volumes:
+    #   - media:/app/media
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.mcu-site.rule=Host(`mcu.youssefprodev.com`)"
