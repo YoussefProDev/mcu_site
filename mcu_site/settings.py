@@ -162,5 +162,5 @@ LOGGING = {
         'level': 'DEBUG',
     },
 }
-if DEBUG:
-    STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+# if DEBUG:
+#     STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
