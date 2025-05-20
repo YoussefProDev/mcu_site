@@ -9,9 +9,10 @@ python manage.py collectstatic --noinput
 
 echo Popola /app/media solo se è vuoto
 if [ ! -d /app/media/images ] || [ -z "$(ls -A /app/media/images 2>/dev/null)" ]; then
-  echo "📁 La cartella /app/media/images non esiste o è vuota. Popolo il volume media..."
   
   if [ -d /app/default_media ]; then
+   echo "📁 La cartella /app/media/images non esiste o è vuota. Popolo il volume media..."
+ 
     cp -r /app/default_media/* /app/media/
   else
     echo "⚠️  Attenzione: /app/default_media NON esiste!"
