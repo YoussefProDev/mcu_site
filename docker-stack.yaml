@@ -11,7 +11,7 @@ services:
       - media:/app/media
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.mcu-site.rule=Host(`mcu.youssefprodev.com`)"
+      - "traefik.http.routers.mcu-site.rule=(Host(`mcu.youssefprodev.com`) && !PathPrefix(`/media`))"
       - "traefik.http.routers.mcu-site.entrypoints=websecure"
       - "traefik.http.routers.mcu-site.tls=true"
       - "traefik.http.routers.mcu-site.tls.certresolver=cloudflare"
@@ -32,10 +32,10 @@ services:
       update_config:
         order: start-first
     labels:
-      - traefik.enable=true
-      - traefik.http.routers.media.rule=Host(`mcu.youssefprodev.com`) && PathPrefix(`/media`)
-      - traefik.http.routers.media.entrypoints=websecure
-      - traefik.http.routers.media.tls.certresolver=cloudflare
+      - "traefik.enable=true"
+      - "traefik.http.routers.media.rule=(Host(`mcu.youssefprodev.com`) && PathPrefix(`/media`))"
+      - "traefik.http.routers.media.entrypoints=websecure"
+      - "traefik.http.routers.media.tls.certresolver=cloudflare"
       - "traefik.http.routers.media.tls=true"
       - "traefik.http.services.media.loadbalancer.server.port=80"
 

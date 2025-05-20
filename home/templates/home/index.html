@@ -2,38 +2,46 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="{% static 'img/marvel_favicon.png' %}">
-    <link rel="stylesheet" href="{% static 'home/css/style.css' %} ">
-    <!-- <link rel="stylesheet" href="{% static 'home/css/caro.css' %}"> -->
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="{% static 'home/bootstrap/css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
-    <title>MCU</title>
-</head>
-<body>
-  
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{% static 'img/marvel_favicon.png' %}"
+    />
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}" />
 
-    {% block nav %}
-      {% include "home/partials/_nav.html" %}
-    {% endblock %}
-    {% block hero %}
-      {% include "home/partials/_hero.html" %}
-    {% endblock %}
-    {% block body %}
-      {% include "home/partials/body.html" %}
-    {% endblock %}
-    {% block footer %}
-      {% include "home/partials/_footer.html" %}
-    {% endblock %}
-    
-    
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="{% static 'home/bootstrap/css/bootstrap.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <title>MCU</title>
+  </head>
+  <body>
+   {% block nav %}
+  {% include "home/partials/_nav.html" %}
+{% endblock %}
+
+{% block hero %}
+  {% include "home/partials/_hero.html" %}
+{% endblock %}
+
+{% block body %}
+  {% include "home/partials/body.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "home/partials/_footer.html" %}
+{% endblock %}
+
+
     <script src="{% static 'home/bootstrap/js/bootstrap.bundle.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'home/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-</body>
+  </body>
 </html>
