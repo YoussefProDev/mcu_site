@@ -40,6 +40,8 @@ services:
       - "traefik.http.routers.media.tls.certresolver=cloudflare"
       - "traefik.http.routers.media.tls=true"
       - "traefik.http.services.media.loadbalancer.server.port=80"
+    networks:
+      - traefik
 
 
 networks:
